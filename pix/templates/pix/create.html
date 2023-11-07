@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>Information Science Project</title>
+    <meta charset="utf-8">
+    <link href="{% static 'pix/css/default.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="nav">
+        <a class="button left" href='{% url 'home' %}'>&laquo; 戻る</a>
+        <div class="cell"><span>タイトルと説明を入力してください</span></div>
+        <button class="button right" type="submit" form="post">投稿</a>
+    </div>
+    <div class="container">
+        <div class="images">
+            <img src="{{ image }}" alt="before">
+            <span>&raquo;</span>
+            <img src="{{ converted }}" alt="after">
+        </div>
+        <div>
+            <form action="{% url 'create' %}" method="POST" id="post">
+                {% csrf_token %}
+                <div>
+                <input type="text" placeHolder="タイトル" name="title" value="{{ title }}" required></input>
+                </div><div>
+                <textarea id="desc" placeHolder="説明" name="desc" rows="5">{{ description }}</textarea>
+                </div>
+            </form>
+        </div> 
+    </div>
+</body>
+</html>

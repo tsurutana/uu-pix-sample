@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>Information Science Project</title>
+    <meta charset="utf-8">
+    <link href="{% static 'pix/css/default.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h1>画像投稿・共有サービス</h1>
+    <form class="" method="POST" enctype="multipart/form-data" autocomplete=off>
+        {% csrf_token %}
+        <div class="upload">
+            <input type="file" name="imagefile" accept="image/*" onchange="form.submit()">
+        </div>
+    </form>
+    <div class="container">
+        <h2>最近の投稿</h2>
+        
+    </div>
+</body>
+</html>
